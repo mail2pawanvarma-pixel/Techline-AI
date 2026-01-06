@@ -1,0 +1,7 @@
+{
+  "name": "Techline Studio - AI & Cybersecurity Learning",
+  "description": "Modern educational platform for school and college students to learn AI and Cybersecurity through hands-on practical training.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
