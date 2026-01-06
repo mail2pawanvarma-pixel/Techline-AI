@@ -25,15 +25,29 @@ Vercel needs your API Key to talk to the Gemini AI.
 
 ---
 
-## ❓ Common Questions
+## 🔒 Security: How to lock your API Key
+To ensure your API Key **only** works on your Techline Studio website:
 
-**How will my domain look?**
-*   **Free Domain:** Vercel gives you one for free, like `techline-studio.vercel.app`.
-*   **Custom Domain:** If you buy a domain (like `techlinestudio.in`), you can connect it easily in Vercel's "Domains" settings.
+1. Go to [Google Cloud Credentials](https://console.cloud.google.com/apis/credentials).
+2. Click on your API key name.
+3. Under **"Application restrictions"**, select **Websites**.
+4. Add your website URL: `https://techline-studio.vercel.app/*`
+5. If you buy a custom domain (e.g., `techlinestudio.in`), add `https://techlinestudio.in/*` as well.
+6. Click **Save**.
 
-**Why is the Chatbot not replying?**
-*   Ensure you added the Environment Variable named exactly `API_KEY` in Vercel.
-*   Ensure your API Key is active in [Google AI Studio](https://aistudio.google.com/).
+*This ensures that even if someone finds your key, they cannot use it on any other website.*
 
-**Is this safe?**
-*   Yes. By putting the key in Vercel's Environment Variables instead of the code, your key stays secret and protected.
+---
+
+## 🔑 How to get your API Key (Troubleshooting)
+
+If you are stuck on the **"Select a Cloud Project"** screen in Google AI Studio:
+
+1. **If the dropdown is empty:** 
+   * Go to the [Google Cloud Console](https://console.cloud.google.com/).
+   * Click the project selector at the top and click **"New Project"**.
+   * Give it a name (e.g., `techline-ai`) and click **Create**.
+   * Return to AI Studio, **Refresh the page**, and you can now select that project from the list.
+
+2. **The "One-Click" Method:**
+   * On the main [AI Studio API Keys page](https://aistudio.google.com/app/apikey), simply click the button that says **"Create API key in new project"**. This is the easiest way as it skips the manual project selection.

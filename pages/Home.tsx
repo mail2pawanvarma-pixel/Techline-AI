@@ -1,10 +1,11 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { WHATSAPP_NUMBER } from '../constants';
 
 const Home: React.FC = () => {
   return (
-    <div className="relative overflow-hidden bg-white">
+    <div className="relative overflow-hidden bg-white pb-20 lg:pb-0">
       {/* Decorative background elements */}
       <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-50 rounded-full blur-[120px] -z-10 opacity-60"></div>
       <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] bg-indigo-50 rounded-full blur-[100px] -z-10 opacity-40"></div>
@@ -76,6 +77,38 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Quick Action Mobile Bar (Click to Call / WhatsApp / Mail) */}
+      <div className="md:hidden fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 p-4 z-50 flex gap-2 shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+        <a href="tel:9343704278" className="flex-1 bg-slate-900 text-white py-3 rounded-xl font-bold flex flex-col items-center justify-center gap-1 text-[10px]">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          CALL
+        </a>
+        <a href={`https://wa.me/${WHATSAPP_NUMBER}`} className="flex-1 bg-green-600 text-white py-3 rounded-xl font-bold flex flex-col items-center justify-center gap-1 text-[10px]">
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.025 3.207l-.694 2.547 2.628-.69c.873.472 1.814.717 2.808.718h.001c3.182 0 5.768-2.586 5.769-5.766 0-3.181-2.585-5.766-5.767-5.766zm3.336 8.232c-.145.409-.844.767-1.157.818-.313.05-.62.085-1.047.085s-.91-.105-1.545-.355c-2.706-1.066-4.459-3.83-4.593-4.01s-1.087-1.452-1.087-2.771 1.087-2.454 1.246-2.564c.159-.11.348-.137.465-.137h.375c.12 0 .282.015.408.318.126.301.428 1.037.466 1.111.038.075.063.162.013.264-.05.101-.075.162-.15.253-.075.091-.157.202-.225.27-.075.075-.154.157-.066.301.088.144.391.645.839 1.043.578.514 1.065.674 1.216.749.151.075.24.062.328-.04.088-.101.377-.439.478-.588.101-.15.201-.126.339-.075s.881.415 1.033.491c.151.075.252.113.289.176.038.063.038.365-.107.774z"/></svg>
+          WHATSAPP
+        </a>
+        <a href="mailto:contact@rebrainsolutions.in" className="flex-1 bg-blue-600 text-white py-3 rounded-xl font-bold flex flex-col items-center justify-center gap-1 text-[10px]">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          EMAIL
+        </a>
+      </div>
+
+      {/* Desktop Floating Actions */}
+      <div className="hidden md:flex fixed right-8 bottom-32 flex-col gap-4 z-40">
+        <a href="tel:9343704278" className="bg-white p-4 rounded-full shadow-2xl text-slate-900 hover:bg-slate-50 hover:-translate-x-2 transition-all border border-slate-100 group">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          <span className="absolute right-full mr-4 bg-slate-900 text-white px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Call Now</span>
+        </a>
+        <a href={`https://wa.me/${WHATSAPP_NUMBER}`} className="bg-green-600 p-4 rounded-full shadow-2xl text-white hover:scale-110 hover:-translate-x-2 transition-all group">
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.025 3.207l-.694 2.547 2.628-.69c.873.472 1.814.717 2.808.718h.001c3.182 0 5.768-2.586 5.769-5.766 0-3.181-2.585-5.766-5.767-5.766zm3.336 8.232c-.145.409-.844.767-1.157.818-.313.05-.62.085-1.047.085s-.91-.105-1.545-.355c-2.706-1.066-4.459-3.83-4.593-4.01s-1.087-1.452-1.087-2.771 1.087-2.454 1.246-2.564c.159-.11.348-.137.465-.137h.375c.12 0 .282.015.408.318.126.301.428 1.037.466 1.111.038.075.063.162.013.264-.05.101-.075.162-.15.253-.075.091-.157.202-.225.27-.075.075-.154.157-.066.301.088.144.391.645.839 1.043.578.514 1.065.674 1.216.749.151.075.24.062.328-.04.088-.101.377-.439.478-.588.101-.15.201-.126.339-.075s.881.415 1.033.491c.151.075.252.113.289.176.038.063.038.365-.107.774z"/></svg>
+          <span className="absolute right-full mr-4 bg-green-600 text-white px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">WhatsApp</span>
+        </a>
+        <a href="mailto:contact@rebrainsolutions.in" className="bg-blue-600 p-4 rounded-full shadow-2xl text-white hover:scale-110 hover:-translate-x-2 transition-all group">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          <span className="absolute right-full mr-4 bg-blue-600 text-white px-3 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Email Us</span>
+        </a>
+      </div>
 
       {/* Features Grid */}
       <section className="py-32 bg-slate-50">
