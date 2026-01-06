@@ -34,9 +34,16 @@ const ChatWidget: React.FC = () => {
 
       const { text } = await askAI(userMsg, history);
       setMessages(prev => [...prev, { role: 'assistant', content: text }]);
-    } catch (error) {
-      console.error(error);
-      setMessages(prev => [...prev, { role: 'assistant', content: "I'm having a little trouble connecting. Please try again later!" }]);
+    } catch (error: any) {
+      // LOGGING THE ERROR FOR YOU TO SEE IN THE BROWSER CONSOLE (Press F12)
+      console.error("TECHLINE CHAT ERROR:", error);
+      
+      let errorMessage = "I'm having a little trouble connecting. Please try again later!";
+      if (error.message?.includes("API key not valid")) {
+        errorMessage = "System Error: The API Key seems to be invalid. Please check your Vercel settings.";
+      }
+
+      setMessages(prev => [...prev, { role: 'assistant', content: errorMessage }]);
     } finally {
       setIsLoading(false);
     }
