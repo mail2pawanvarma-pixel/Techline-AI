@@ -4,10 +4,6 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  define: {
-    // This makes the Vercel variable available inside your React code
-    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || process.env.VITE_API_KEY)
-  },
   build: {
     outDir: 'dist',
     sourcemap: false
